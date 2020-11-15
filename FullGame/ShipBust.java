@@ -2,7 +2,7 @@ package FullGame;
 import java.util.*;
 
 public class ShipBust {
-    private gameHelper helper = new gameHelper();
+    private GameHelper helper = new GameHelper();
     private ArrayList<Ship> shipList = new ArrayList<Ship>();
     private int numOfGuesses = 0;
 
