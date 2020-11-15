@@ -1,4 +1,4 @@
-
+package SimpleGame;
 public class SimpleDotCom {
 	
 	int[] locationCells;

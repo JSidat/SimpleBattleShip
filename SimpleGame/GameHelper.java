@@ -1,3 +1,4 @@
+package SimpleGame;
 import java.io.*;
 public class GameHelper {
     public String getUserInput(String prompt) {
