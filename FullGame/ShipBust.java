@@ -31,12 +31,44 @@ public class ShipBust {
     private void startPlaying() {
         while(!shipList.isEmpty()) {
             String userGuess = helper.getUserInput("Enter guess here");
-            checkUserGuess(userGuess)
+            checkUserGuess(userGuess);
 
         }
         finishGame();
     }
-    
+
+    private void checkUserGuess(String userGuess) {
+        numOfGuesses++;
+        String result = "miss";
+
+        for(Ship shipToTest : shipList) {
+            result = shipToTest.checkYourself(userGuess);
+            if (result.equals("hit")) {
+                break;
+            }
+            System.out.println(result);
+
+        }
+
+        private void finishGame() {
+            System.out.println("All ships are sunk! The ocean is now empty");
+            if (numOfGuesses <= 18) {
+                System.out.println("It only took you " + numOfGuesses + " guesses.");
+            } else {
+                System.out.println("Took you long enough. " + numOfGuesses + " guesses.");                
+            }
+        }
+
+        public static void main (String[] args) {
+
+            ShipBust game = new ShipBust();
+            game.setUpGame();
+            game.startPlaying();
+
+        }
+
+    }
+
 
 
     
