@@ -25,8 +25,8 @@ public class Ship {
         } else {
             result = "hit";
         }
-        return result;
         }
+        return result;
     }
 }
 
