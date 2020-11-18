@@ -52,13 +52,13 @@ public class ShipBust {
             }
             if (result.equals("kill")) {
                 shipList.remove(shipToTest);
-                break;
+                break; // ship's sunk, so remove it from the list and leave the loop
             }
             System.out.println(result); // print the result for the user
         }
     }
 
-        // 
+        // print out a message telling the player how he did in the game
         private void finishGame() {
             System.out.println("All ships are sunk! The ocean is now empty");
             if (numOfGuesses <= 18) {
@@ -70,9 +70,9 @@ public class ShipBust {
 
         public static void main (String[] args) {
 
-            ShipBust game = new ShipBust();
-            game.setUpGame();
-            game.startPlaying();
+            ShipBust game = new ShipBust(); // tell the game object to create a new game
+            game.setUpGame(); // tell the game object to set up the game
+            game.startPlaying(); // tellthe game object to start the main game play loop (keep asking for and checking user guesses)
 
         }
 
