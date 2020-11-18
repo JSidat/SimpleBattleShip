@@ -32,7 +32,6 @@ public class ShipBust {
         while(!shipList.isEmpty()) {
             String userGuess = helper.getUserInput("Enter guess here");
             checkUserGuess(userGuess);
-
         }
         finishGame();
     }
@@ -47,8 +46,8 @@ public class ShipBust {
                 break;
             }
             System.out.println(result);
-
         }
+    }
 
         private void finishGame() {
             System.out.println("All ships are sunk! The ocean is now empty");
@@ -72,4 +71,4 @@ public class ShipBust {
 
 
     
-}
+
