@@ -1,13 +1,14 @@
 package FullGame;
 import java.util.*;
 
+// Declare and initialise the variables needed 
 public class ShipBust {
     private GameHelper helper = new GameHelper();
     private ArrayList<Ship> shipList = new ArrayList<Ship>();
     private int numOfGuesses = 0;
 
     private void setUpGame () {
-        // first make some ships and give them locations
+        // Make three ship objects, give them names and add them to the arraylist called shipList
         Ship one = new Ship();
         one.setName("Ship One");
         Ship two = new Ship();
@@ -18,12 +19,14 @@ public class ShipBust {
         shipList.add(two);
         shipList.add(three);
 
+        // Print out brief instructions for the user 
         System.out.println("Your goal is to sink three ships");
         System.out.println("Ship One, Ship Two and Ship Three");
         System.out.println("try to sink them all in the lowest number of guesses");
         
+        // Set the location of each of the ships in the arrayList
         for(Ship ShipToSet : shipList) {
-            ArrayList<String> newLocation = helper.placeDotCom(3);
+            ArrayList<String> newLocation = helper.placeShip(3);
             ShipToSet.setLocationCells(newLocation);
         }
     }
