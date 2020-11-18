@@ -24,34 +24,41 @@ public class ShipBust {
         System.out.println("Ship One, Ship Two and Ship Three");
         System.out.println("try to sink them all in the lowest number of guesses");
         
-        // Set the location of each of the ships in the arrayList
+        // use a for loop to repeat the setLocation method for each ship in the list
         for(Ship ShipToSet : shipList) {
+            // ask the helper for the location of the ship
             ArrayList<String> newLocation = helper.placeShip(3);
+            // Use the setter method on this ship to give it the location that we got from the helper 
             ShipToSet.setLocationCells(newLocation);
         }
     }
 
     private void startPlaying() {
-        while(!shipList.isEmpty()) {
-            String userGuess = helper.getUserInput("Enter guess here");
-            checkUserGuess(userGuess);
+        while(!shipList.isEmpty()) { // as long as the shipList is not empty
+            String userGuess = helper.getUserInput("Enter guess here"); // get user input
+            checkUserGuess(userGuess); // call the checkUserGuess method to check theuser input
         }
-        finishGame();
+        finishGame(); // call the finishGame method when the shipList is empty
     }
 
     private void checkUserGuess(String userGuess) {
-        numOfGuesses++;
-        String result = "miss";
+        numOfGuesses++; // increment the number of guesses the user has made
+        String result = "miss"; // assume it is a miss unless told otherwise
 
-        for(Ship shipToTest : shipList) {
-            result = shipToTest.checkYourself(userGuess);
-            if (result.equals("hit")) {
+        for(Ship shipToTest : shipList) { // repeat for each ship in the shipList
+            result = shipToTest.checkYourself(userGuess); // check the user guess, looking for a hit or kill
+            if (result.equals("hit")) { 
+                break; // get out of the loop early, no point in checking the other guesses
+            }
+            if (result.equals("kill")) {
+                shipList.remove(shipToTest);
                 break;
             }
-            System.out.println(result);
+            System.out.println(result); // print the result for the user
         }
     }
 
+        // 
         private void finishGame() {
             System.out.println("All ships are sunk! The ocean is now empty");
             if (numOfGuesses <= 18) {
